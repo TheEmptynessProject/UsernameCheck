@@ -20,8 +20,8 @@ async function checkUsernameAvailability(username) {
     await page.type('input[name="username"]', username);
     await page.keyboard.press('Tab');
 
-    const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 6000)); //If the check is timing out a lot of the times, you are rate limited
-
+    //const timeoutPromise = new Promise((resolve) => setTimeout(resolve, 6000)); //If you get timed out lots of times, you have been rate limited
+    
     const result = await Promise.race([
       page.waitForSelector('span.xo3uz88.x1nxxyus'),
       page.waitForSelector('span.xo3uz88.x1twbzvy'),
